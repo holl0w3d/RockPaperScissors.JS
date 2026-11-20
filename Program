@@ -1,0 +1,139 @@
+
+ /**
+ * RockPaperScissors
+ * Represents one game of Rock, Paper, Scissors between a player and the computer.
+ *
+ * Choices are stored as ints:
+ *   0 = rock, 1 = paper, 2 = scissors
+ *
+ * NOTE: This assignment uses only if / else if / else and nested ifs.
+ *       No logical operators (&&, ||, !) allowed.
+ */
+public class RockPaperScissors
+{
+    // ===== Instance Variables =====
+    private int playerChoice;
+    private int computerChoice;
+
+    // ===== Constructor =====
+    /**
+     * Sets up a new game.
+     * Starting values are -1 because nobody has picked yet.
+     */
+    public RockPaperScissors()
+    {
+        playerChoice = -1;
+        computerChoice = -1;
+    }
+
+    // ===== Methods =====
+
+    /**
+     * Stores the player's choice.
+     * @param choice 0 = rock, 1 = paper, 2 = scissors
+     * Only stores the choice if it is valid.
+     */
+    public void setPlayerChoice(int choice)
+    {
+        if (choice >= 0)
+        {
+            if (choice <= 2)
+            {
+                playerChoice = choice;
+            }
+        }
+    }
+
+    /**
+     * Randomly picks rock, paper, or scissors for the computer
+     * and stores it.
+     */
+    public void generateComputerChoice()
+    {
+        computerChoice = (int)(Math.random() * 3);
+    }
+
+    /**
+     * Converts a choice number into a word for printing.
+     * @param choice 0, 1, or 2
+     * @return "Rock", "Paper", or "Scissors"
+     */
+    public String choiceToString(int choice)
+    {
+        if (choice == 0)
+        {
+            return "Rock";
+        }
+        else if (choice == 1)
+        {
+            return "Paper";
+        }
+        else
+        {
+            return "Scissors";
+        }
+    }
+
+    /**
+     * Decides who won this round.
+     * @return "Tie", "Player wins", or "Computer wins"
+     */
+    public String determineWinner()
+    {
+        if (playerChoice == computerChoice)
+        {
+            return "Tie";
+        }
+        else if (playerChoice == 0)
+        {
+            if (computerChoice == 1)
+            {
+                return "Computer wins";
+            }
+            else
+            {
+                return "Player wins";
+            }
+        }
+        else if (playerChoice == 1)
+        {
+            if (computerChoice == 2)
+            {
+                return "Computer wins";
+            }
+            else
+            {
+                return "Player wins";
+            }
+        }
+        else
+        {
+            if (computerChoice == 0)
+            {
+                return "Computer wins";
+            }
+            else
+            {
+                return "Player wins";
+            }
+        }
+    }
+
+    // ===== Getters =====
+
+    /**
+     * @return the player's choice
+     */
+    public int getPlayerChoice()
+    {
+        return playerChoice;
+    }
+
+    /**
+     * @return the computer's choice
+     */
+    public int getComputerChoice()
+    {
+        return computerChoice;
+    }
+}
